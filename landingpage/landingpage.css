@@ -10,38 +10,49 @@ body {
 .logo{
   color: yellow;
   text-align: center;
-text-shadow: -2px 0 red, 0 2px red, 2px 0 red, 0 -2px red;
+  text-shadow: -2px 0 red, 0 2px red, 2px 0 red, 0 -2px red;
   font-size: 3vw;
   margin-left: -20vw;
   padding-top: 25vw;
   letter-spacing: .5vw;
+  font-style: italic;
 }
 .city{
+  margin-left: -2vw;
   margin-top: -5vw;
+
   animation-name: cityslide;
-  animation-duration: 2s;
+  animation-duration: 3s;
 }
 .battle{
   animation-name: battleslide;
-  animation-duration: 2s;
+  animation-duration: 3s;
 }
+
 @keyframes cityslide {
-from{
-  padding-left:70vw;
-  letter-spacing: normal;
-}
-to{
-   padding-left:auto;
-   letter-spacing: .5vw;
-}
+  from{
+    padding-left:70vw;
+    letter-spacing: normal;
+  }
+  to{
+    padding-left:auto;
+    letter-spacing: .5vw;
+  }
 }
 @keyframes battleslide {
-from{
-  margin-left:-50vw;
-  letter-spacing: normal;
+  from{
+    margin-left:-50vw;
+    letter-spacing: normal;
+  }
+  to{
+    padding-left:auto;
+    letter-spacing: .5vw;
+  }
 }
-to{
-   padding-left:auto;
-   letter-spacing: .5vw;
-}
+a{
+  color: yellow;
+  text-decoration: none;
+  padding-left: 30vw;
+  font-size: 2vw;
+  font-style: oblique;
 }
