@@ -5,3 +5,4 @@ window.addEventListener("keydown", function(press) {
         document.getElementById('continue').click();
     }
 });
+document.getElementById('themesound').play();
