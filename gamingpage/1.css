@@ -1,0 +1,13 @@
+#mycanvas {
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+body {
+    margin: 0;
+    background-image: url('http://texturelib.com/Textures/grass/grass/grass_grass_0076_01_preview.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
