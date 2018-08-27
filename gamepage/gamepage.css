@@ -1,0 +1,17 @@
+.{
+  margin: 0 auto;
+}
+#hero{
+  width: 150px;
+   height: 150px;
+   position: absolute;
+   transform: rotate(0deg);
+}
+body{
+  background-image: url(https://d2d00szk9na1qq.cloudfront.net/Product/eafda994-18a5-441e-b120-af3a105c06c7/Images/Large_0374394.jpg);
+  width:92%;
+    height: 80%;
+  background-size:cover;
+  background-repeat: no-repeat;
+
+}
