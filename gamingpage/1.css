@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0 auto;
 }
 
@@ -30,5 +30,28 @@ body {
     position: absolute;
     /* transform: rotate(0deg);
     transform-origin: top center; */
+}
 
-}  
+#enemy2 {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    /* transform: rotate(0deg);
+    transform-origin: top center; */
+}
+
+#enemy3 {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    /* transform: rotate(0deg);
+    transform-origin: top center; */
+}
+
+#blast {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    /* transform: rotate(0deg);
+    transform-origin: top center; */
+}
