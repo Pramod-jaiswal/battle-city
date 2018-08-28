@@ -1,4 +1,4 @@
-.{
+*{
   margin: 0 auto;
 }
 #hero{
@@ -6,12 +6,19 @@
    height: 150px;
    position: absolute;
    transform: rotate(0deg);
+   transform-origin: top center;
 }
 body{
-  background-image: url(https://d2d00szk9na1qq.cloudfront.net/Product/eafda994-18a5-441e-b120-af3a105c06c7/Images/Large_0374394.jpg);
+  background-color: silver;
   width:92%;
     height: 80%;
-  background-size:cover;
-  background-repeat: no-repeat;
+
+}
+#hero_fire{
+  width: 50px;
+   height: 50px;
+   position: relative;
+   transform: rotate(0deg);
+  transform-origin: center;
 
 }
