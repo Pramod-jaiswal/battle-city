@@ -1,13 +1,34 @@
-#mycanvas {
-    width: 100%;
-    height: 100%;
-    border: 1px solid black;
+*{
+    margin: 0 auto;
+}
+
+#hero {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    transform: rotate(0deg);
+    transform-origin: top center;
 }
 
 body {
-    margin: 0;
-    background-image: url('http://texturelib.com/Textures/grass/grass/grass_grass_0076_01_preview.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: silver;
+    width: 92%;
+    height: 80%;
 }
 
+#hero_fire {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    transform: rotate(0deg);
+    transform-origin: center;
+}
+
+#enemy1 {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    /* transform: rotate(0deg);
+    transform-origin: top center; */
+
+}  
