@@ -55,3 +55,8 @@ body {
     /* transform: rotate(0deg);
     transform-origin: top center; */
 }
+
+#gamescore{
+    text-align: right;
+    color: black;
+    }
