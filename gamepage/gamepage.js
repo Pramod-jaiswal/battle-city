@@ -17,7 +17,6 @@ function initials(){
   hero.margin_right =100;
   hero.margin_top =30;
   hero.margin_bottom =0;
-
 }
 function setPosition(obj){
   var e = document.getElementById(obj.element);
@@ -78,22 +77,18 @@ function handleControls(){
   if(control.up == true)//experiment
   {
     hero.y -= 4;
-    hero_fire.y -=4;
   }
   if(control.down == true)
   {
     hero.y += 4;
-    hero_fire.y += 4;
   }
   if(control.left == true)
   {
     hero.x -= 6;
-    hero_fire.x -= 6;
   }
   if(control.right == true)
   {
     hero.x += 6;
-    hero_fire.x += 6;
   }
   if(control.rotateleft == true){
     document.getElementById('hero').style.transform +="rotate(-5deg)";
@@ -151,28 +146,33 @@ function bounderylimit(pos){
   }
 
 }
-function sound(){
- document.getElementById('sound1').play();
- }
+// function sound(){
+//   document.getElementById('sound1').play();
+// }
 // animating the fire
-function shooting(pos){
-  pos.y -= 5;
-  var timer;
-  if(pos.y < 0)
-  {
-      clearTimeout('timer');
-  document.getElementById("hero_fire").setAttribute("src"," ");
+function shooting(hero_fire){
 
-}
-else{
-  timer = setTimeout('shooting(hero_fire)',20);
-}
+  hero_fire.x -= 5 * Math.sin(angle);
+  hero_fire.y -= 5 * Math.cos(angle);
+
+
+
+  var timer;
+  if(hero_fire.y < 0 || hero_fire.x < 0 || hero_fire.y >window.innerHeight || hero_fire.x >  window.innerWidth)
+  {
+    clearTimeout('timer');
+    document.getElementById("hero_fire").setAttribute("src"," ");
+
+  }
+  else{
+    timer = setTimeout('shooting(hero_fire)',5);
+  }
 }
 function nextshoot(hero,hero_fire){
-  hero_fire.x= hero.x ;
-  hero_fire.y = hero.y;
- setPosition(hero_fire);
- document.getElementById('hero_fire').setAttribute("src","fire.png");
+  hero_fire.x= hero.x - 5 ;
+  hero_fire.y = hero.y - 5;
+  setPosition(hero_fire);
+  document.getElementById('hero_fire').setAttribute("src","fire.png");
 }
 initials();
 loop();

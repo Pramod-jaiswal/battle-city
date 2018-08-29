@@ -3,22 +3,22 @@
 }
 #hero{
   width: 150px;
-   height: 150px;
-   position: absolute;
-   transform: rotate(0deg);
-   transform-origin: top center;
+  height: 150px;
+  position: absolute;
+  transform: rotate(0deg);
+  transform-origin: top center;
 }
 body{
   background-color: silver;
   width:92%;
-    height: 80%;
+  height: 80%;
 
 }
 #hero_fire{
   width: 50px;
-   height: 50px;
-   position: relative;
-   transform: rotate(0deg);
+  height: 50px;
+  position: relative;
+  transform: rotate(0deg);
   transform-origin: center;
 
 }
