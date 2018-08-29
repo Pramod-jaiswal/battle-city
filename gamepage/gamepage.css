@@ -9,16 +9,52 @@
   transform-origin: top center;
 }
 body{
-  background-color: silver;
-  width:92%;
-  height: 80%;
+background-image: url(img/background.jpg);
+  max-width:100%;
+  max-height: 100%;
 
 }
 #hero_fire{
-  width: 50px;
-  height: 50px;
+  width: 20px;
+  height: 20px;
   position: relative;
   transform: rotate(0deg);
   transform-origin: center;
 
 }
+#enemy1 {
+    width: 80px;
+    height: 150px;
+    position: absolute;
+    /* transform: rotate(0deg);
+    transform-origin: top center; */
+}
+
+#enemy2 {
+    width: 80px;
+    height: 150px;
+    position: absolute;
+    /* transform: rotate(0deg);
+    transform-origin: top center; */
+}
+
+#enemy3 {
+    width: 80px;
+    height: 150px;
+    position: absolute;
+    /* transform: rotate(0deg);
+    transform-origin: top center; */
+}
+
+#blast {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    /* transform: rotate(0deg);
+    transform-origin: top center; */
+}
+
+#gamescore{
+    text-align: right;
+    color: black;
+    }

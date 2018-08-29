@@ -2,16 +2,36 @@
 // creating a hero element
 var hero = new Object();
 var hero_fire = new Object();
+var enemy1 = new Object();
+var enemy2 = new Object();
+var enemy3 = new Object();
+var dead =[0,0,0];
+var enemy_targeted = [0,0,0];
 hero.element = 'hero';
 hero.x = 650;
 hero.y = 460;
 hero.width = 150;
 hero.height =150;
 hero_fire.element = 'hero_fire';
-hero_fire.x=638;
+hero_fire.x= 700;
 hero_fire.y=438;
-hero_fire.width=50;
-hero_fire.height=50;
+hero_fire.width=10;
+hero_fire.height=10;
+enemy1.element = 'enemy1';
+enemy1.x = 150;
+enemy1.y = 0;
+enemy1.width = 80;
+enemy1.height = 150;
+enemy2.element = 'enemy2';
+enemy2.x = 700;
+enemy2.y = 0;
+enemy2.width = 80;
+enemy2.height = 150;
+enemy3.element = 'enemy3';
+enemy3.x = 1300;
+enemy3.y = 0;
+enemy3.width = 80;
+enemy3.height = 150;
 function initials(){
   hero.margin_left=60;
   hero.margin_right =100;
@@ -112,19 +132,25 @@ function handleControls(){
   //bounderylimit(hero_fire);
 }
 // changes are reflected
-function  showChanges(){
-  setPosition(hero);
-  setPosition(hero_fire);
+function showChanges() {
+    setPosition(hero);
+    setPosition(hero_fire);
+    setPosition(enemy1);
+    setPosition(enemy2);
+    setPosition(enemy3);
 }
 // looping function calls itself in every 2 mili sec
-function loop(){
-  if(new Date().getTime() - lastUpdate> 40){
-    handleControls();
-    showChanges();
-    lastUpdate = new Date().getTime();
-  }
-  setTimeout('loop();',2);
-
+function loop() {
+    if (new Date().getTime() - lastUpdate > 40) {
+        initials();
+        handleControls();
+        showChanges();
+        collisionenemy1();
+        collisionenemy2();
+        collisionenemy3();
+        lastUpdate = new Date().getTime();
+    }
+    setTimeout('loop();', 2);
 }
 // checking boundry limits
 function bounderylimit(pos){
@@ -146,19 +172,12 @@ function bounderylimit(pos){
   }
 
 }
-// function sound(){
-//   document.getElementById('sound1').play();
-// }
-// animating the fire
+//animating the fire
 function shooting(hero_fire){
-
   hero_fire.x -= 5 * Math.sin(angle);
   hero_fire.y -= 5 * Math.cos(angle);
-
-
-
   var timer;
-  if(hero_fire.y < 0 || hero_fire.x < 0 || hero_fire.y >window.innerHeight || hero_fire.x >  window.innerWidth)
+  if(hero_fire.y < -hero_fire.height || hero_fire.x < -hero_fire.width || (hero_fire.y >window.innerHeight + hero_fire.height) || (hero_fire.x + hero_fire.width) >  window.innerWidth )
   {
     clearTimeout('timer');
     document.getElementById("hero_fire").setAttribute("src"," ");
@@ -168,11 +187,107 @@ function shooting(hero_fire){
     timer = setTimeout('shooting(hero_fire)',5);
   }
 }
-function nextshoot(hero,hero_fire){
-  hero_fire.x= hero.x - 5 ;
-  hero_fire.y = hero.y - 5;
+function nextshoot(hero,hero_fire)
+{
+  hero_fire.x = hero.x + 50;
+  hero_fire.y = hero.y - 12 ;
   setPosition(hero_fire);
-  document.getElementById('hero_fire').setAttribute("src","fire.png");
+  document.getElementById('hero_fire').setAttribute("src","img/fire.png");
+}
+function enemy1dead() {
+  dead[0] =1;
+    document.getElementById("enemy1").setAttribute("src", "img/burned.png");
+    // call blast sound here
+    // if (count==3)
+    //    {
+    //      setTimeout(nextenemywave,1000);
+    //    }
+}
+
+function enemy2dead() {
+  dead[1] = 1;
+    document.getElementById("enemy2").setAttribute("src", "img/burned.png");
+    // if (count == 3)
+    // {
+    //     setTimeout(nextenemywave, 1000);
+    // }
+}
+
+function enemy3dead() {
+
+  dead[2] =1;
+    document.getElementById("enemy3").setAttribute("src", "img/burned.png");
+    // if (count == 3)
+    // {
+    //     setTimeout(nextenemywave, 1000);
+    // }
+}
+
+function collisionenemy1() {
+  if(dead[0] == 0)
+  {
+    if ((hero_fire.x <= (enemy1.x + enemy1.width)) && ((hero_fire.x + hero_fire.width) >= enemy1.x) &&
+        (hero_fire.y < (enemy1.y + enemy1.height)) && hero_fire.y > (7 * enemy1.y))
+     {
+       enemy_targeted[0] += 1;
+       // change the target color to indicate hit
+       // call hit sound here
+       hit_tank();
+       if(enemy_targeted[0] == 2){
+         console.log("heyy");
+        document.getElementById("enemy1").setAttribute("src", "img/blast.png");
+        document.getElementById("hero_fire").setAttribute("src", ".png");
+        setTimeout(enemy1dead, 500);
+}
+    }
+  }
+}
+
+function collisionenemy2() {
+  if(dead[1] == 0)
+  {
+    if ((hero_fire.x <= (enemy2.x + enemy2.width)) && ((hero_fire.x + hero_fire.width) >= enemy2.x) &&
+        (hero_fire.y < (enemy2.y + enemy2.height)) && hero_fire.y > (7 * enemy2.y))
+      {
+         enemy_targeted[1] += 1;
+         hit_tank();
+         if(enemy_targeted[1] == 2)
+         {
+        document.getElementById("enemy2").setAttribute("src", "img/blast.png");
+        document.getElementById("hero_fire").setAttribute("src", ".png");
+        setTimeout(enemy2dead, 500);
+      }
+    }
+  }
+}
+function collisionenemy3() {
+  if(dead[2] == 0)
+  {
+    if ((hero_fire.x <= (enemy3.x + enemy3.width)) && ((hero_fire.x + hero_fire.width) >= enemy3.x) &&
+        (hero_fire.y < (enemy3.y + enemy3.height)) && hero_fire.y > (7 * enemy3.y))
+    {
+      enemy_targeted[2] += 1;
+      hit_tank();
+       if(enemy_targeted[2] == 2)
+       {
+    document.getElementById("enemy3").setAttribute("src", "img/blast.png");
+        document.getElementById("hero_fire").setAttribute("src", ".png");
+        setTimeout(enemy3dead, 500);
+      }
+    }
+  }
+}
+// function nextenemywave()
+// {
+//     document.getElementById("enemy1").setAttribute("src", "enemy1.png");
+//     document.getElementById("enemy2").setAttribute("src", "enemy2.png");
+//     document.getElementById("enemy3").setAttribute("src", "enemy3.png");
+// }
+// function sound(){
+//   document.getElementById('sound1').play();
+// }
+function hit_tank(){
+   document.getElementById('hit_enemy').play();
 }
 initials();
 loop();
