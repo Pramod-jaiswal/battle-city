@@ -1,31 +1,29 @@
-* {
-    margin: 0;
+*{
+  margin: 0;
 }
-
-#hero {
-    width: 150px;
-    height: 150px;
-    position: absolute;
-    transform: rotate(0deg);
-    transform-origin: top center;
+#hero{
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  transform: rotate(0deg);
+  transform-origin: top center;
 }
-
-body {
-    background-image: url(img/background.jpg);
-    /* background-repeat: no-repeat;
+body{
+ background-image: url(img/background.jpg);
+ /* background-repeat: no-repeat;
   background-size: cover; */
-    max-width: 100%;
-    max-height: 100%;
+  max-width:100%;
+  max-height: 100%;
+  
 }
+#hero_fire{
+  width: 20px;
+  height: 20px;
+  position: relative;
+  transform: rotate(0deg);
+  transform-origin: center;
 
-#hero_fire {
-    width: 20px;
-    height: 20px;
-    position: relative;
-    transform: rotate(0deg);
-    transform-origin: center;
 }
-
 #enemy1 {
     width: 80px;
     height: 150px;
@@ -58,17 +56,17 @@ body {
     transform-origin: top center; */
 }
 
-#gamescore {
+#gamescore{
     text-align: right;
     font-size: 30px;
     color: black;
     margin-right: 80px;
     margin-top: 500px;
-}
+    }
 
 #wallofqueen {
     height: 100px;
     width: 300px;
     position: fixed;
     margin-top: 350px;
-}
+      }
