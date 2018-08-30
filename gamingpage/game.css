@@ -1,5 +1,5 @@
 * {
-    margin: 0 auto;
+    margin: 0;
 }
 
 #hero {
@@ -11,21 +11,23 @@
 }
 
 body {
-    background-color: silver;
-    width: 92%;
-    height: 80%;
+    background-image: url(img/background.jpg);
+    /* background-repeat: no-repeat;
+  background-size: cover; */
+    max-width: 100%;
+    max-height: 100%;
 }
 
 #hero_fire {
-    width: 50px;
-    height: 50px;
+    width: 20px;
+    height: 20px;
     position: relative;
     transform: rotate(0deg);
     transform-origin: center;
 }
 
 #enemy1 {
-    width: 150px;
+    width: 80px;
     height: 150px;
     position: absolute;
     /* transform: rotate(0deg);
@@ -33,7 +35,7 @@ body {
 }
 
 #enemy2 {
-    width: 150px;
+    width: 80px;
     height: 150px;
     position: absolute;
     /* transform: rotate(0deg);
@@ -41,7 +43,7 @@ body {
 }
 
 #enemy3 {
-    width: 150px;
+    width: 80px;
     height: 150px;
     position: absolute;
     /* transform: rotate(0deg);
@@ -56,7 +58,17 @@ body {
     transform-origin: top center; */
 }
 
-#gamescore{
+#gamescore {
     text-align: right;
+    font-size: 30px;
     color: black;
-    }
+    margin-right: 80px;
+    margin-top: 500px;
+}
+
+#wallofqueen {
+    height: 100px;
+    width: 300px;
+    position: fixed;
+    margin-top: 350px;
+}
