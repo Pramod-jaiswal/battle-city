@@ -26,8 +26,8 @@ background-image: url(img/background.jpg);
     width: 80px;
     height: 150px;
     position: absolute;
-    /* transform: rotate(0deg);
-    transform-origin: top center; */
+     transform: rotate(0deg);
+    /* transform-origin: top center; */
 }
 
 #enemy2 {
@@ -58,3 +58,27 @@ background-image: url(img/background.jpg);
     text-align: right;
     color: black;
     }
+#enemy2_fire
+{
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  transform: rotate(0deg);
+  transform-origin: center;
+}
+#enemy1_fire
+{
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  transform: rotate(0deg);
+  transform-origin: center;
+}
+#enemy3_fire
+{
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  transform: rotate(0deg);
+  transform-origin: center;
+}
