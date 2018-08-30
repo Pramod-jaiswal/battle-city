@@ -145,6 +145,9 @@ function loop() {
         initials();
         handleControls();
         showChanges();
+        enemy1_transition();
+        enemy3_transition();
+        enemy2_transition();
         collisionenemy1();
         collisionenemy2();
         collisionenemy3();
@@ -196,6 +199,7 @@ function nextshoot(hero,hero_fire)
 }
 function enemy1dead() {
   dead[0] =1;
+
     document.getElementById("enemy1").setAttribute("src", "img/burned.png");
     // call blast sound here
     // if (count==3)
@@ -233,9 +237,9 @@ function collisionenemy1() {
        // change the target color to indicate hit
        // call hit sound here
        hit_tank();
-       if(enemy_targeted[0] == 2){
-         console.log("heyy");
+       if(enemy_targeted[0] == 4){
         document.getElementById("enemy1").setAttribute("src", "img/blast.png");
+        explosion();
         document.getElementById("hero_fire").setAttribute("src", ".png");
         setTimeout(enemy1dead, 500);
 }
@@ -251,9 +255,10 @@ function collisionenemy2() {
       {
          enemy_targeted[1] += 1;
          hit_tank();
-         if(enemy_targeted[1] == 2)
+         if(enemy_targeted[1] == 4)
          {
         document.getElementById("enemy2").setAttribute("src", "img/blast.png");
+            explosion();
         document.getElementById("hero_fire").setAttribute("src", ".png");
         setTimeout(enemy2dead, 500);
       }
@@ -268,13 +273,41 @@ function collisionenemy3() {
     {
       enemy_targeted[2] += 1;
       hit_tank();
-       if(enemy_targeted[2] == 2)
+       if(enemy_targeted[2] == 4)
        {
     document.getElementById("enemy3").setAttribute("src", "img/blast.png");
+        explosion();
         document.getElementById("hero_fire").setAttribute("src", ".png");
         setTimeout(enemy3dead, 500);
       }
     }
+  }
+}
+function enemy1_transition(){
+  if((enemy1. y + enemy1.height)!= 300)
+  {
+    enemy1.y += 3;
+
+  }
+  if((enemy1.y + enemy1.height) == 300)
+  {
+   document.getElementById("enemy1").style.transform = "rotate(-45deg)";
+  }
+}
+function enemy2_transition(){
+  if((enemy2.y + enemy2.height)!= 300)
+  {
+    enemy2.y +=3;
+  }
+}
+function enemy3_transition(){
+  if((enemy3.y + enemy3.height) != 300)
+  {
+    enemy3.y += 3;
+  }
+  if((enemy3.y + enemy3.height) == 300 )
+  {
+    document.getElementById("enemy3").style.transform = "rotate(45deg)";
   }
 }
 // function nextenemywave()
@@ -288,6 +321,9 @@ function collisionenemy3() {
 // }
 function hit_tank(){
    document.getElementById('hit_enemy').play();
+}
+function explosion(){
+   document.getElementById('explode').play();
 }
 initials();
 loop();
