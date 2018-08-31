@@ -1,15 +1,17 @@
 *{
-  margin: 0 auto;
+  margin: 0;
 }
 #hero{
-  width: 150px;
-  height: 150px;
-  position: absolute;
+  width: 80px;
+  height: 100px;
+  position: fixed;
   transform: rotate(0deg);
   transform-origin: top center;
 }
 body{
-background-image: url(img/background.jpg);
+  background-image: url(img/background.jpg);
+  /* background-repeat: no-repeat;
+  background-size: cover; */
   max-width:100%;
   max-height: 100%;
 
@@ -17,68 +19,72 @@ background-image: url(img/background.jpg);
 #hero_fire{
   width: 20px;
   height: 20px;
-  position: relative;
+  position: fixed;
   transform: rotate(0deg);
   transform-origin: center;
 
 }
 #enemy1 {
-    width: 80px;
-    height: 150px;
-    position: absolute;
-     transform: rotate(0deg);
-    /* transform-origin: top center; */
+  width: 80px;
+  height: 100px;
+  position: fixed;
+   transform: rotate(0deg);
+  transform-origin: bottom center;
 }
 
 #enemy2 {
-    width: 80px;
-    height: 150px;
-    position: absolute;
-    /* transform: rotate(0deg);
-    transform-origin: top center; */
+  width: 80px;
+  height: 100px;
+  position: fixed;
+  transform: rotate(0deg);
+  transform-origin: bottom center;
 }
 
 #enemy3 {
-    width: 80px;
-    height: 150px;
-    position: absolute;
-    /* transform: rotate(0deg);
-    transform-origin: top center; */
+  width: 80px;
+  height: 100px;
+  position: fixed;
+  transform: rotate(0deg);
+  transform-origin: bottom center; 
 }
 
-#blast {
-    width: 150px;
-    height: 150px;
-    position: absolute;
-    /* transform: rotate(0deg);
-    transform-origin: top center; */
-}
+/* #blast {
+  width: 150px;
+  height: 150px;
+  position: fixed;
+  /* transform: rotate(0deg);
+  transform-origin: top center; */
 
+/* } */
 #gamescore{
-    text-align: right;
-    color: black;
-    }
-#enemy2_fire
-{
-  width: 20px;
-  height: 20px;
-  position: fixed;
-  transform: rotate(0deg);
-  transform-origin: center;
+  text-align: right;
+  font-size: 30px;
+  color: black;
+  margin-right: 80px;
+  margin-top: 500px;
 }
-#enemy1_fire
-{
+#enemy2_fire {
   width: 20px;
   height: 20px;
   position: fixed;
   transform: rotate(0deg);
-  transform-origin: center;
+
 }
-#enemy3_fire
-{
+
+#enemy1_fire {
   width: 20px;
   height: 20px;
   position: fixed;
   transform: rotate(0deg);
-  transform-origin: center;
+
+}
+
+#enemy3_fire {
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  transform: rotate(0deg);
+}
+a{
+  text-decoration: none;
 }
