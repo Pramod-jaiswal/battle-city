@@ -6,6 +6,7 @@ body {
   background-image: url(https://images.wallpaperscraft.com/image/world_of_tanks_is-7_game_explosion_war_66664_1920x1080.jpg);
   background-size: cover;
   background-position:top;
+  
 }
 .logo{
   color: yellow;
@@ -16,6 +17,7 @@ body {
   padding-top: 25vw;
   letter-spacing: .5vw;
   font-style: italic;
+  
 }
 .city{
   margin-left: -2vw;
@@ -55,4 +57,5 @@ a{
   padding-left: 30vw;
   font-size: 2vw;
   font-style: oblique;
+  letter-spacing: 0.5vw;
 }

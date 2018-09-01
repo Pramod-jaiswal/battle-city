@@ -1,0 +1,47 @@
+body
+{
+    background-image: url("throne.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+
+}
+
+#heading{
+    font-size:3vw;
+    font-style: italic; 
+    font-weight: bolder;
+    color :#ef0446;
+    text-decoration: underline;
+
+}
+#content1{
+    font-size : 1.5vw;
+    
+    color : black;
+    font-weight: bold;
+}
+#content2 {
+    font-size: 2vw;
+    
+    color: black;
+    font-weight: bold;
+}
+#controls {
+    font-size: 2vw;
+    color: black;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.content3 {
+    font-size: 1.5vw;
+    color: black;
+    font-weight: bold;
+}
+
+#start{
+    text-decoration: none;
+    color: black;
+    font-size: 1.5vw;
+    
+}
