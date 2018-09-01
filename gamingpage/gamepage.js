@@ -6,14 +6,17 @@ var enemy1 = new Object();
 var enemy2 = new Object();
 var enemy3 = new Object();
 var wall =  new Object();
+var enemy2_fire = new Object();
+var enemy1_fire = new Object();
+var enemy3_fire = new Object();
 var score = 0;
 var dead = [0, 0, 0];
 var enemy_targeted = [0, 0, 0];
 var count = 0;
 document.getElementById("gamescore").innerHTML = score;
 hero.element = 'hero';
-hero.x = 650;
-hero.y = 250;
+hero.x = 600;
+hero.y = 400;
 hero.width = 150;
 hero.height =150;
 hero_fire.element = 'hero_fire';
@@ -23,12 +26,36 @@ hero_fire.width=10;
 hero_fire.height=10;
 wall.element = 'wallofqueen';
 wall.x = 500;
-wall.y = 70;
+wall.y = 550;
+function reset_enemy1_fire() {
+  enemy1_fire.element = 'enemy1_fire';
+  enemy1_fire.x = enemy1.x + enemy1.width / 2 + 45;
+  enemy1_fire.y = 270;
+  enemy1_fire.width = 20;
+  enemy1_fire.height = 20;
+}
 
+function reset_enemy2_fire() {
+  enemy2_fire.element = 'enemy2_fire';
+  enemy2_fire.x = enemy2.x + enemy2.width / 2 - 10;
+  enemy2_fire.y = 290;
+  enemy2_fire.width = 10;
+  enemy2_fire.height = 10;
+}
+
+function reset_enemy3_fire() {
+  enemy3_fire.element = 'enemy3_fire';
+  enemy3_fire.x = enemy3.x + enemy3.width / 2 - 55;
+  enemy3_fire.y = 260;
+  enemy3_fire.height = 10;
+  enemy3_fire.width = 10;
+}
 
 
 var enemyisback = (function again()
 {  count = 0; 
+   document.getElementById("enemy1").style.transform = "rotate(0deg)";
+    document.getElementById("enemy3").style.transform = "rotate(0deg)";
    dead = [0, 0, 0];
    enemy_targeted = [0, 0, 0];
   enemy1.element = 'enemy1';
@@ -155,6 +182,10 @@ function showChanges() {
     setPosition(enemy2);
     setPosition(enemy3);
     setPosition(wall);
+    setPosition(enemy1_fire);
+    setPosition(enemy2_fire);
+    setPosition(enemy3_fire);
+    
 }
 // looping function calls itself in every 2 mili sec
 function loop() {
@@ -165,9 +196,18 @@ function loop() {
         collisionenemy1();
         collisionenemy2();
         collisionenemy3();
+        enemy1_transition();
+        enemy3_transition();
+        enemy2_transition();
+        enemy1_shoot();
+        enemy2_shoot();
+        enemy3_shoot();
+       // herohit();
+        // wallhit();
+        
         lastUpdate = new Date().getTime();
     }
-    setTimeout('loop();', 2);
+    setTimeout(loop, 2);
 }
 // checking boundry limits
 function bounderylimit(pos){
@@ -211,6 +251,7 @@ function nextshoot(hero,hero_fire)
   setPosition(hero_fire);
   document.getElementById('hero_fire').setAttribute("src","img/fire.png");
 }
+
 function enemy1dead() {
   dead[0] =1;
 
@@ -247,22 +288,25 @@ function collisionenemy1() {
   if(dead[0] == 0)
   {
     if ((hero_fire.x <= (enemy1.x + enemy1.width)) && ((hero_fire.x + hero_fire.width) >= enemy1.x) &&
-        (hero_fire.y < (enemy1.y + enemy1.height)) && hero_fire.y > (7 * enemy1.y))
+        (hero_fire.y < (enemy1.y + enemy1.height)) && hero_fire.y >  (enemy1.y))
      {
        enemy_targeted[0] += 1;
+
        // change the target color to indicate hit
        // call hit sound here
-       
+      document.getElementById("hero_fire").setAttribute("src", ".png");
       
        hit_tank();
+      if (enemy_targeted[0] == 4)
+      {
         document.getElementById("enemy1").setAttribute("src", "img/blast.png");
         explosion();
-        document.getElementById("hero_fire").setAttribute("src", ".png");score +=10;
+        document.getElementById("hero_fire").setAttribute("src", ".png");
         score +=10;
         document.getElementById("gamescore").innerHTML = score;
         setTimeout(enemy1dead, 500);
 }
-    }
+    }}
   }
 
 
@@ -270,19 +314,20 @@ function collisionenemy2() {
   if(dead[1] == 0)
   {
     if ((hero_fire.x <= (enemy2.x + enemy2.width)) && ((hero_fire.x + hero_fire.width) >= enemy2.x) &&
-        (hero_fire.y < (enemy2.y + enemy2.height)) && hero_fire.y > (7 * enemy2.y))
+        (hero_fire.y < (enemy2.y + enemy2.height)) && hero_fire.y > (enemy2.y))
       {
          enemy_targeted[1] += 1;
     
-      
+      document.getElementById("hero_fire").setAttribute("src", ".png");
          hit_tank();
          if(enemy_targeted[1] == 4)
          {
         document.getElementById("enemy2").setAttribute("src", "img/blast.png");
             explosion();
-        document.getElementById("hero_fire").setAttribute("src", ".png");
            score += 10;
            document.getElementById("gamescore").innerHTML = score;
+        document.getElementById("hero_fire").setAttribute("src", ".png");
+           
            setTimeout(enemy2dead, 500);
       }
     }
@@ -292,11 +337,11 @@ function collisionenemy3() {
   if(dead[2] == 0)
   {
     if ((hero_fire.x <= (enemy3.x + enemy3.width)) && ((hero_fire.x + hero_fire.width) >= enemy3.x) &&
-        (hero_fire.y < (enemy3.y + enemy3.height)) && hero_fire.y > (7 * enemy3.y))
+        (hero_fire.y < (enemy3.y + enemy3.height)) && hero_fire.y > (enemy3.y))
     {
       enemy_targeted[2] += 1;
       
-    
+      document.getElementById("hero_fire").setAttribute("src", ".png");
       hit_tank();
        if(enemy_targeted[2] == 4)
        {
@@ -317,6 +362,82 @@ function nextenemywave()
     document.getElementById("enemy3").setAttribute("src", "img/enemy1.png");
     
 }
+
+function enemy1_transition() {
+  if ((enemy1.y + enemy1.height) != 300) {
+    enemy1.y += 5;
+
+  }
+  if ((enemy1.y + enemy1.height) == 300) {
+    document.getElementById("enemy1").style.transform = "rotate(-45deg)";
+  }
+}
+
+function enemy2_transition() {
+  if ((enemy2.y + enemy2.height) != 300) {
+    enemy2.y += 5;
+  }
+}
+
+function enemy3_transition() {
+  if ((enemy3.y + enemy3.height) != 300) {
+    enemy3.y += 5;
+  }
+  if ((enemy3.y + enemy3.height) == 300) {
+    document.getElementById("enemy3").style.transform = "rotate(45deg)";
+  }
+}
+
+function enemy1_shoot() {
+  if (enemy1.y + enemy1.height == 300) {
+    document.getElementById("enemy1_fire").setAttribute("src", "img/fire.png");
+    enemy1_fire.x -= 10 * Math.sin(-(45 * Math.PI / 180));
+    enemy1_fire.y += 10 * Math.cos(45 * Math.PI / 180);
+    if (enemy1_fire.y + enemy1_fire.height > window.innerHeight) {
+      reset_enemy1_fire();
+    }
+  }
+}
+
+function enemy2_shoot() {
+  if (enemy2.y + enemy2.height == 300) {
+    document.getElementById("enemy2_fire").setAttribute("src", "img/fire.png");
+    enemy2_fire.y += 10;
+  }
+  if (enemy2_fire.y + enemy2_fire.height > window.innerHeight) {
+    reset_enemy2_fire();
+  }
+}
+
+function enemy3_shoot() {
+  if (enemy3.y + enemy3.height == 300) {
+    document.getElementById("enemy3_fire").setAttribute("src", "img/fire.png");
+    enemy3_fire.x += 10 * Math.sin(-(45 * Math.PI / 180));
+    enemy3_fire.y += 10 * Math.cos(45 * Math.PI / 180);
+  }
+  if (enemy3_fire.y + enemy3_fire.height > window.innerHeight) {
+    reset_enemy3_fire();
+  }
+}
+
+// function herohit()
+// {
+//   if ((enemy2_fire.x >= (hero.x + hero.width)) && ((enemy2_fire.x + enemy2_fire.width) <= hero.x) &&
+//     (enemy2_fire.y > (hero.y + hero.height)) && enemy2_fire.y < (hero.y))
+//      {
+//          console.log(herohitbyenemy2);
+//       document.getElementById("enemy2_fire").setAttribute("src", ".png"); 
+//      }
+// }
+
+// function wallhit()
+// {
+//   if(enemy2_fire.y >= (wall.y + wall.height) && 
+//   (enemy2_fire.x +enemy2_fire.width) >= wall.x && enemy2_fire.x <= (wall.x + wall.width))
+//   {
+//     console.log(wallhitbyenemy2);
+//   }
+// }
 // function sound(){
 //   document.getElementById('sound1').play();
 // }
@@ -327,4 +448,7 @@ function explosion(){
    document.getElementById('explode').play();
 }
 //initials();
+reset_enemy3_fire();
+reset_enemy1_fire();
+reset_enemy2_fire();
 loop();

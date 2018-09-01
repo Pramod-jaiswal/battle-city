@@ -1,10 +1,12 @@
 *{
   margin: 0;
+  box-sizing: border-box;
 }
 #hero{
   width: 150px;
   height: 150px;
-  position: absolute;
+  position: fixed;
+
   transform: rotate(0deg);
   transform-origin: top center;
 }
@@ -19,7 +21,7 @@ body{
 #hero_fire{
   width: 20px;
   height: 20px;
-  position: relative;
+  position: fixed;
   transform: rotate(0deg);
   transform-origin: center;
 
@@ -27,7 +29,7 @@ body{
 #enemy1 {
     width: 80px;
     height: 150px;
-    position: absolute;
+    position: fixed;
     /* transform: rotate(0deg);
     transform-origin: top center; */
 }
@@ -35,7 +37,7 @@ body{
 #enemy2 {
     width: 80px;
     height: 150px;
-    position: absolute;
+    position: fixed;
     /* transform: rotate(0deg);
     transform-origin: top center; */
 }
@@ -43,7 +45,7 @@ body{
 #enemy3 {
     width: 80px;
     height: 150px;
-    position: absolute;
+    position: fixed;
     /* transform: rotate(0deg);
     transform-origin: top center; */
 }
@@ -51,7 +53,7 @@ body{
 #blast {
     width: 150px;
     height: 150px;
-    position: absolute;
+    position: fixed;
     /* transform: rotate(0deg);
     transform-origin: top center; */
 }
@@ -68,5 +70,152 @@ body{
     height: 100px;
     width: 300px;
     position: fixed;
-    margin-top: 350px;
+
+      } 
+
+      #enemy2_fire {
+          width: 20px;
+          height: 20px;
+          position: fixed;
+          transform: rotate(0deg);
+          transform-origin: center;
       }
+
+      #enemy1_fire {
+          width: 20px;
+          height: 20px;
+          position: fixed;
+          transform: rotate(0deg);
+          transform-origin: center;
+      }
+
+      #enemy3_fire {
+          width: 20px;
+          height: 20px;
+          position: fixed;
+          transform: rotate(0deg);
+          transform-origin: center;
+      }
+
+      .health_bar1 {
+          background-color: white;
+          width: 300px;
+          height: 30px;
+          margin: 5px 20px 0px 1050px;
+      }
+
+     .health_bar2 {
+          background-color: white;
+          width: 300px;
+          height: 30px;
+          margin: 5px 20px 10px 1050px;
+          
+      } 
+
+      .hero_health {
+          width: 90%;
+          background-color: red;
+      }
+
+     .wall_health {
+         width: 90%;
+         background-color: red;
+     }
+
+      .bar1{
+         padding: 15px;
+     } 
+
+      .bar2 {
+         padding: 15px;
+     }
+
+      #herobar{
+         margin-top: 400px;
+         margin-left: 1050px;
+     } 
+     #wallbar {
+         margin-top: 15px;
+         margin-left: 1050px;
+     }
+
+     #gamescore{
+         font-size: 30px;
+         margin-left: 10px;
+     }
+
+     #gametext{
+         margin-left: 10px;
+         font-size: 30px;
+     } 
+ 
+    /* #contents{
+         background-color: black;
+         width: 300px;
+         height: 300px;
+     } */
+
+     .button {
+         background-color: black;
+         border: none;
+         color: white;
+         padding: 15px 32px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 16px;
+         margin-left: 10px;
+         /* margin-right: auto; */
+         cursor: pointer;
+     }
+
+     .button:hover {
+         background-color: white;
+         color: black;
+     }
+
+
+     .menubtn {
+         background-color: black;
+         color: white;
+         padding: 16px;
+         font-size: 16px;
+         border: none;
+         cursor: pointer;
+         margin-left:1100px; 
+     }
+
+     .menudown {
+         position: relative;
+         display: inline-block;
+     }
+
+     .menudown-content {
+         display: none;
+         position: absolute;
+         background-color: #ffffff;
+         min-width: 160px;
+         box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+         z-index: 1;
+         margin-left:1100px;
+     }
+
+     .menudown-content a {
+         color: black;
+         padding: 12px 16px;
+         text-decoration: none;
+         display: block;
+     }
+
+     .menudown-content a:hover {
+         background-color: #f1f1f1
+     }
+
+     .menudown:hover .menudown-content {
+         display: block;
+     }
+
+     .menudown:hover .menubtn {
+         background-color: white;
+         color: black;
+     }
