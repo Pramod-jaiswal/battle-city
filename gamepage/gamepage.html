@@ -13,6 +13,8 @@
   </audio>
   <audio id="hit_enemy" src="audio/hit.wav" preload="auto">
   </audio>
+  <audio id="hero_hit" src="audio/hero_hit.mp3" preload="auto">
+  </audio>
   <audio id="explode" src="audio/explosion.mpeg" preload="auto">
   </audio>
   <audio id="jet_enemy1_sound" src="audio/jet.mp3" loop preload="auto">
@@ -27,6 +29,9 @@
   </audio>
   <audio id="helicopter_enemy3_sound" src="audio/helicopter.mp3" loop preload="auto">
   </audio>
+  <audio id = "hero_shoot" src="audio/hero_shoot.mp3">
+  </audio>
+  <a id="gameover" href="../gamepage/gameover.html"></a>
   <!-- placing of bullet -->
   <!-- <div id="fire">
 </div>
@@ -43,9 +48,28 @@ image of our hero tanker  -->
 
 <img id="enemy3" src="img/enemy1.png" alt="">
 <img id="enemy3_fire" src=".png" alt="">
-<div id ="gamescore"></div>
-<button type="button" name="button"> <a href="gamepage.html">replay!!</a> </button>
-<!-- <img id="wallofqueen" src="img/wall2.png" alt=""> -->
+
+<!-- <button type="button" name="button"> <a href="gamepage.html">replay!!</a> </button> -->
+<img id="wallofqueen" src="img/wall2.png" alt="">
+<img src="img/queen.png" id="myqueen" alt="">
+
+<span id="gametext">SCORE:-</span>
+<span id="gamescore"></span>
+
+<a href="gamepage.html" class="button">RESTART</a>
+
+
+
+<h2 id="herobar">HERO HEALTH</h2>
+<div class="health_bar1">
+    <div id="hero_health"></div>
+    </div>
+
+<h2 id="wallbar">WALL STRENGTH</h2>
+<div class="health_bar2">
+     <div id="wall_health"></div>
+</div>
+
 <script type="text/javascript" src="gamepage.js">
 </script>
 </body>
