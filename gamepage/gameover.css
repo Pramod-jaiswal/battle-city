@@ -1,0 +1,33 @@
+body{
+    background-image: url("../control/throne.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1{
+    margin-top: 200px;
+    text-align: center;
+    font-size: 7vw;
+    font-weight: bolder;
+    color: black;
+}
+
+.button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 100px;
+    margin-left: 700px;
+    /* margin-right: auto; */
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: white;
+    color: black;
+}

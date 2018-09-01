@@ -231,10 +231,10 @@ function bounderylimit(pos){
 }
 //animating the fire
 function shooting(hero_fire){
-  hero_fire.x -= 5 * Math.sin(angle);
-  hero_fire.y -= 5 * Math.cos(angle);
+  hero_fire.x -= 8 * Math.sin(angle);
+  hero_fire.y -= 8 * Math.cos(angle);
   var timer;
-  hero_shoot_sound();
+  //hero_shoot_sound();
   if(hero_fire.y < -hero_fire.height || hero_fire.x < -hero_fire.width || (hero_fire.y >window.innerHeight + hero_fire.height) || (hero_fire.x + hero_fire.width) >  window.innerWidth )
   {
     clearTimeout('timer');
@@ -612,10 +612,10 @@ function hero_hit_sound()
   document.getElementById("hero_hit").volume = 0.5;
   document.getElementById("hero_hit").play();
 }
-function hero_shoot_sound(){
-  document.getElementById("hero_shoot").volume = 0.5;
-  document.getElementById("hero_shoot").play();
-}
+// function hero_shoot_sound(){
+//   document.getElementById("hero_shoot").volume = 0.5;
+//   document.getElementById("hero_shoot").play();
+// }
 //initials();
 document.getElementById("gamescore").innerHTML = score;
 reset_enemy3_fire();
