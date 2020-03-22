@@ -1,0 +1,163 @@
+*{
+  margin: 0;
+}
+#hero{
+  width: 80px;
+  height: 100px;
+  position: fixed;
+  transform: rotate(0deg);
+  transform-origin: top center;
+}
+body{
+  background-image: url(img/background.jpg);
+
+  max-width:100%;
+  max-height: 100%;
+
+}
+#hero_fire{
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  transform: rotate(0deg);
+  transform-origin: center;
+
+}
+#enemy1 {
+  width: 80px;
+  height: 100px;
+  position: fixed;
+  transform: rotate(0deg);
+  transform-origin: bottom center;
+}
+
+#enemy2 {
+  width: 80px;
+  height: 100px;
+  position: fixed;
+  transform: rotate(0deg);
+  transform-origin: bottom center;
+}
+
+#enemy3 {
+  width: 80px;
+  height: 100px;
+  position: fixed;
+  transform: rotate(0deg);
+  transform-origin: bottom center;
+}
+
+
+#enemy2_fire {
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  transform: rotate(0deg);
+
+}
+
+#enemy1_fire {
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  transform: rotate(0deg);
+
+}
+
+#enemy3_fire {
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  transform: rotate(0deg);
+}
+
+#gamescore{
+  text-align: right;
+  font-size: 30px;
+  color: black;
+  margin-right: 80px;
+  margin-top: 500px;
+}
+
+#wallofqueen {
+  height: 100px;
+  width: 300px;
+  position: fixed;
+
+}
+
+.health_bar1 {
+  background-color: white;
+  width: 300px;
+  height: 10px;
+  margin: 5px 20px 0px 1180px;
+}
+
+.health_bar2 {
+  background-color: white;
+  width: 300px;
+  height: 10px;
+  margin: 5px 20px 10px 1180px;
+
+}
+
+#hero_health {
+  width: 290px;
+  padding: 5px;
+  background-color: red;
+}
+
+ #wall_health {
+  width: 290px;
+  background-color: red;
+  padding: 5px;
+}
+
+#herobar{
+  margin-top: 500px;
+  margin-left: 1180px;
+}
+#wallbar {
+     margin-top: 3vw;
+  margin-top: 15px;
+  margin-left: 1180px;
+}
+
+#gamescore{
+  font-size: 35px;
+  margin-left: 10px;
+  font-weight: bolder;
+  color: black;
+}
+
+#gametext{
+  margin-left: 10px;
+  font-size: 35px;
+  font-weight: bolder;
+  color: black;
+}
+
+
+.button {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 1100px;
+  /* margin-right: auto; */
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: white;
+  color: black;
+}
+#myqueen{
+  position: fixed;
+  width : 100px;
+  height : 80px;
+}
