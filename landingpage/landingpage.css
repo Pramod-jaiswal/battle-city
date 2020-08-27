@@ -3,12 +3,9 @@
   height: auto;
 }
 body {
-  background-image: url('/gamepage/img/landingpage.jpg')
+  background-image: url(https://images.wallpaperscraft.com/image/world_of_tanks_is-7_game_explosion_war_66664_1920x1080.jpg);
   background-size: cover;
   background-position:top;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
 
 }
 .logo{
