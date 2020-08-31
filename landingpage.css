@@ -12,12 +12,11 @@ body {
 
 }
 .logo{
-  color: yellow;
+  color: #e0360b;
   text-align: center;
-  text-shadow: -2px 0 red, 0 2px red, 2px 0 red, 0 -2px red;
-  font-size: 3vw;
-  margin-left: -20vw;
-  padding-top: 25vw;
+  text-shadow: -2px 0 yellow, 0 2px yellow, 2px 0 yellow, 0 -2px yellow;
+  font-size: 4vw;
+  margin-top: 10vw;
   letter-spacing: .5vw;
   font-style: italic;
 
@@ -36,7 +35,7 @@ body {
 
 @keyframes cityslide {
   from{
-    padding-left:70vw;
+    padding-left:60vw;
     letter-spacing: normal;
   }
   to{
@@ -46,7 +45,7 @@ body {
 }
 @keyframes battleslide {
   from{
-    margin-left:-50vw;
+    margin-left:-20vw;
     letter-spacing: normal;
   }
   to{
@@ -55,10 +54,9 @@ body {
   }
 }
 a{
-  color: yellow;
+  color: #e0360b;
   text-decoration: none;
-  padding-left: 30vw;
-  font-size: 2vw;
-  font-style: oblique;
-  letter-spacing: 0.5vw;
+  padding-left: 38vw;
+  font-size: 3vw;
+  font-style: bold;
 }
