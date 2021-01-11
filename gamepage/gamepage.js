@@ -30,33 +30,38 @@ hero.y = 560;
 hero.width = 100;
 hero.height =150;
 hero_fire.element = 'hero_fire';
-hero_fire.x= hero.x + 10;
-hero_fire.y= hero.y + 20;
+hero_fire.x= hero.x + hero.width / 2;
+hero_fire.y= hero.y - hero.height/2;
+document.getElementById('hero_fire').style.visibility = "hidden"; //
 hero_fire.width=10;
 hero_fire.height=10;
 wall.element = 'wallofqueen';
  wall.x = 500;
  wall.y = 660;
+
 function reset_enemy1_fire() {
   enemy1_fire.element = 'enemy1_fire';
-  enemy1_fire.x = enemy1.x + enemy1.width / 2;
-  enemy1_fire.y = 250;
+  document.getElementById('enemy1_fire').style.visibility = "hidden";
+  enemy1_fire.x = enemy1.x + enemy1.width / 2 - 10;
+  enemy1_fire.y = enemy1.y + enemy1.height/2;
   enemy1_fire.width = 20;
   enemy1_fire.height = 20;
 }
 
 function reset_enemy2_fire() {
   enemy2_fire.element = 'enemy2_fire';
+  document.getElementById('enemy2_fire').style.visibility = "hidden";
   enemy2_fire.x = enemy2.x + enemy2.width / 2 - 10;
-  enemy2_fire.y = 245;
+  enemy2_fire.y =enemy2.y + enemy2.height/2;
   enemy2_fire.width = 20;
   enemy2_fire.height = 20;
 }
 
 function reset_enemy3_fire() {
   enemy3_fire.element = 'enemy3_fire';
-  enemy3_fire.x = enemy3.x + enemy3.width / 2 - 30;
-  enemy3_fire.y = 250;
+  enemy3_fire.x = enemy3.x + enemy3.width / 2 - 10;
+  enemy3_fire.y =enemy3.y + enemy3.height/2;
+  document.getElementById('enemy3_fire').style.visibility = "hidden";
   enemy3_fire.height = 20;
   enemy3_fire.width = 20;
 }
@@ -85,6 +90,8 @@ var enemyisback = (function again()
   enemy3.height = 150;
   return again;
 })();
+
+
 function setPosition(obj){
   var e = document.getElementById(obj.element);
   e.style.left = obj.x + 'px';
@@ -242,8 +249,6 @@ function shooting(hero_fire){
   if(hero_fire.y < -hero_fire.height || hero_fire.x < -hero_fire.width || (hero_fire.y >window.innerHeight + hero_fire.height) || (hero_fire.x + hero_fire.width) >  window.innerWidth )
   {
     clearTimeout('timer');
-    document.getElementById("hero_fire").setAttribute("src",".png");
-
   }
   else{
     timer = setTimeout('shooting(hero_fire)',5);
@@ -251,6 +256,7 @@ function shooting(hero_fire){
 }
 function nextshoot(hero,hero_fire)
 {
+  document.getElementById('hero_fire').style.visibility = "visible"; //
   hero_fire.x = hero.x + 30;
   hero_fire.y = hero.y - 12 ;
   setPosition(hero_fire);
@@ -260,6 +266,7 @@ function nextshoot(hero,hero_fire)
 function enemy1dead() {
   dead[0] = 1;
   document.getElementById("enemy1").setAttribute("src", "img/burned.png");
+  document.getElementById('enemy1_fire').style.visibility = "hidden"; //
   count++;
   score +=10;
   document.getElementById("gamescore").innerHTML = score;
@@ -272,6 +279,7 @@ function enemy1dead() {
 function enemy2dead() {
   dead[1] = 1;
   document.getElementById("enemy2").setAttribute("src", "img/burned.png");
+  document.getElementById('enemy2_fire').style.visibility = "hidden"; //
   count++;
   score +=10;
   document.getElementById("gamescore").innerHTML = score;
@@ -285,6 +293,7 @@ function enemy3dead() {
 
   dead[2] =1;
   document.getElementById("enemy3").setAttribute("src", "img/burned.png");
+  document.getElementById('enemy3_fire').style.visibility = "hidden"; //
   count++;
   score +=10;
   document.getElementById("gamescore").innerHTML = score;
@@ -303,11 +312,11 @@ function collisionenemy1() {
       enemy_targeted[0] += 1;
       hit_tank();
       document.getElementById("hero_fire").setAttribute("src", ".png");
+      document.getElementById('hero_fire').style.visibility = "hidden"; //
       if(enemy_targeted[0] == 4)
       {
         document.getElementById("enemy1").setAttribute("src", "img/blast.png");
         explosion();
-        document.getElementById("hero_fire").setAttribute("src", ".png");
         setTimeout(enemy1dead, 500);
       }
     }
@@ -324,14 +333,11 @@ function collisionenemy2() {
       enemy_targeted[1] += 1;
       hit_tank();
       document.getElementById("hero_fire").setAttribute("src", ".png");
-
+      document.getElementById('hero_fire').style.visibility = "hidden"; //
       if(enemy_targeted[1] == 4)
       {
         document.getElementById("enemy2").setAttribute("src", "img/blast.png");
         explosion();
-
-        document.getElementById("hero_fire").setAttribute("src", ".png");
-
         setTimeout(enemy2dead, 500);
       }
     }
@@ -344,15 +350,13 @@ function collisionenemy3() {
     (hero_fire.y < (enemy3.y + enemy3.height)) && hero_fire.y > (enemy3.y))
     {
       enemy_targeted[2] += 1;
-
-      document.getElementById("hero_fire").setAttribute("src", ".png");
       hit_tank();
+      document.getElementById("hero_fire").setAttribute("src", ".png");
+      document.getElementById('hero_fire').style.visibility = "hidden"; //
       if(enemy_targeted[2] == 4)
       {
         document.getElementById("enemy3").setAttribute("src", "img/blast.png");
         explosion();
-        document.getElementById("hero_fire").setAttribute("src", ".png");
-
         setTimeout(enemy3dead, 500);
       }
     }
@@ -375,14 +379,17 @@ function enemy1_transition() {
     {
       jet_enemy1_sound_play();
       enemy1.y += 15;
+      enemy1_fire.y+=15; //
     }
     else if(p==2)
     {
       helicopter_enemy1_sound_play();
       enemy1.y += 10;
+      enemy1_fire.y+=10;
     }
     else {
       enemy1.y += 5;
+      enemy1_fire.y+=5;
     }
   }
   if ((enemy1.y + enemy1.height) == 300) {
@@ -396,14 +403,20 @@ function enemy2_transition() {
     {
       jet_enemy2_sound_play();
       enemy2.y += 15;
+      enemy2_fire.y += 15;
+
     }
     else if(q==2)
     {
       helicopter_enemy2_sound_play();
       enemy2.y += 10;
+      enemy2_fire.y += 10;
+
     }
     else {
       enemy2.y += 5;
+      enemy2_fire.y += 5;
+
     }
   }
 }
@@ -414,14 +427,20 @@ function enemy3_transition() {
     {
       jet_enemy3_sound_play();
       enemy3.y +=15;
+      enemy3_fire.y +=15;
+
     }
     else if(r==2)
     {
       helicopter_enemy3_sound_play();
       enemy3.y += 10;
+      enemy3_fire.y +=10;
+
     }
     else {
       enemy3.y += 5;
+      enemy3_fire.y +=5;
+
     }
   }
   if ((enemy3.y + enemy3.height) == 300) {
@@ -439,10 +458,11 @@ function enemy1_shoot() {
       {
         helicopter_enemy1_sound_pause();
       }
-      document.getElementById("enemy1_fire").setAttribute("src", "");
+      document.getElementById('enemy1_fire').style.visibility = "hidden"; //
     }
     else{
       document.getElementById("enemy1_fire").setAttribute("src", "img/fire.png");
+      document.getElementById('enemy1_fire').style.visibility = "visible"; //
     }
     if(p == 2){
       enemy1_fire.x -= 20 * Math.sin(-(40 * Math.PI / 180));
@@ -472,10 +492,12 @@ function enemy2_shoot() {
       {
         helicopter_enemy2_sound_pause();
       }
-      document.getElementById("enemy2_fire").setAttribute("src", ".png");
+      document.getElementById('enemy2_fire').style.visibility = "hidden"; //
     }
     else{
       document.getElementById("enemy2_fire").setAttribute("src", "img/fire.png");
+      document.getElementById('enemy2_fire').style.visibility = "visible"; //
+
     }
     if(q == 2)
     {
@@ -504,10 +526,12 @@ function enemy3_shoot() {
       {
         helicopter_enemy3_sound_pause();
       }
-      document.getElementById("enemy3_fire").setAttribute("src", ".png");
+      document.getElementById('enemy3_fire').style.visibility = "hidden"; //
     }
     else{
       document.getElementById("enemy3_fire").setAttribute("src", "img/fire.png");
+      document.getElementById('enemy3_fire').style.visibility = "visible"; //
+
     }
     if(r ==2)
     {

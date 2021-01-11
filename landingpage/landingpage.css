@@ -3,7 +3,7 @@
   height: auto;
 }
 body {
-  background-image: url('/gamepage/img/landingpage.jpg')
+  /* background-image: url('../gamepage/img/landingpage.jpg') */
   background-size: cover;
   background-position:top;
   background-repeat: no-repeat;
