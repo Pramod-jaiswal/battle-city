@@ -30,8 +30,8 @@ hero.y = 560;
 hero.width = 100;
 hero.height =150;
 hero_fire.element = 'hero_fire';
-hero_fire.x= 630;
-hero_fire.y=480;
+hero_fire.x= hero.x + 10;
+hero_fire.y= hero.y + 20;
 hero_fire.width=10;
 hero_fire.height=10;
 wall.element = 'wallofqueen';
@@ -144,18 +144,22 @@ function handleControls(){
   if(control.up == true)//experiment
   {
     hero.y -= 4;
+    hero_fire.y-=4;
   }
   if(control.down == true)
   {
     hero.y += 4;
+    hero_fire.y-=4;
   }
   if(control.left == true)
   {
     hero.x -= 6;
+    hero_fire.x-=6
   }
   if(control.right == true)
   {
     hero.x += 6;
+    hero_fire.x+=6;
   }
   if(control.rotateleft == true){
     document.getElementById('hero').style.transform +="rotate(-5deg)";
@@ -435,7 +439,7 @@ function enemy1_shoot() {
       {
         helicopter_enemy1_sound_pause();
       }
-      document.getElementById("enemy1_fire").setAttribute("src", ".png");
+      document.getElementById("enemy1_fire").setAttribute("src", "");
     }
     else{
       document.getElementById("enemy1_fire").setAttribute("src", "img/fire.png");
