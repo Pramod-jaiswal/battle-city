@@ -7,7 +7,11 @@ Enemies have Tanks, helicopter,and jets you have to be quick to win the game.
 --- BEST OF LUCK ----
 
 # Set-up
-Simply clone the repo and that's it woohh....
+Simply clone the repo and open index.html in browser and that's it woohh....
+ 
+----- OR ----
+
+Visit - https://pramodjais517.github.io/battle-city/
 
 # controls for game
 1) To move up ->  up key
